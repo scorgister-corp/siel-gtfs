@@ -1,0 +1,24 @@
+#!/bin/bash
+
+wget https://data.montpellier3m.fr/TAM_MMM_GTFSRT/GTFS.zip
+node index.js
+
+#tam plugin example
+java -jar tam.jar
+
+mkdir ../node/gtfs/
+cp ./gtfs/calendar_dates.json ../node/gtfs/calendar_dates.json
+cp ./gtfs/routes.json ../node/gtfs/routes.json
+cp ./gtfs/stop_times.json ../node/gtfs/stop_times.json
+cp ./gtfs/stops.json ../node/gtfs/stops.json
+cp ./gtfs/trips.json ../node/gtfs/trips.json
+
+#tam plugin example
+cp ./infos.json ../node/infos.json
+
+rm -rf gtfs
+rm -rf gtfs_data
+rm -f GTFS.zip
+rm -f infos.json
+
+# resart API server
