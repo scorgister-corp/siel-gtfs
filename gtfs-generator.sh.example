@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#move analytics data into analytics folder
+mv ../node/analytics/users.json ../analytics/users.json
+
 wget https://data.montpellier3m.fr/TAM_MMM_GTFSRT/GTFS.zip
 node index.js
 
